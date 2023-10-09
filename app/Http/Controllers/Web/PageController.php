@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
 class PageController extends Controller
 {
+    use HasRoles;
+
     public function welcome()
     {
         return Inertia::render('Welcome', [
@@ -17,6 +21,7 @@ class PageController extends Controller
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
+            //'usergroup' => HasGroups,
         ]);
     
     }

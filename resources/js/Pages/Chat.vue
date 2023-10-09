@@ -1,5 +1,14 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import axios from 'axios';
+import { onMounted } from 'vue';
+
+onMounted(() => {
+        console.log('montado com sucesso')
+        axios.get('api/users').then(response =>(
+            console.log(response.data)
+        ))
+    })
 </script>
 
 <template>
