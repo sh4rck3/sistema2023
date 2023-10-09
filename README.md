@@ -2,4 +2,4 @@
 
 ## About System
 
-Laravel aplication with inertia and Vue.js
+Laravel application with inertia and Vue.js
