@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { Head, Link, router } from '@inertiajs/vue3';
 import ApplicationMark from '@/Components/ApplicationMark.vue';
 import Banner from '@/Components/Banner.vue';
@@ -7,11 +7,12 @@ import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+import {useAbility} from '@casl/vue'
 
 defineProps({
     title: String,
 });
-
+const {can} = useAbility()
 const showingNavigationDropdown = ref(false);
 
 const switchToTeam = (team) => {
@@ -25,6 +26,10 @@ const switchToTeam = (team) => {
 const logout = () => {
     router.post(route('logout'));
 };
+onMounted(()=>{
+    console.log(can('bound can'))
+    console.log(can('user-edit'))
+})
 </script>
 
 <template>
@@ -53,7 +58,7 @@ const logout = () => {
                                 </NavLink>
                             </div>
                             <div 
-                            v-if="can('standard')"
+                            v-if="can('user-edit')"
                             class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink :href="route('chat')" :active="route().current('chat')">
                                     Chat
