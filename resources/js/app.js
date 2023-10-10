@@ -8,6 +8,8 @@ import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 //import LaravelPermissionToVueJS from 'laravel-permission-to-vuejs';
 import { abilitiesPlugin } from '@casl/vue';
 import ability from './services/ability';
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -19,6 +21,7 @@ createInertiaApp({
             .use(plugin)
             .use(ZiggyVue)
             .use(abilitiesPlugin, ability)
+            .use(VueSweetalert2)
             //.use(LaravelPermissionToVueJS)
             .mount(el);
     },

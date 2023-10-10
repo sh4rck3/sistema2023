@@ -22,6 +22,7 @@
     "dependencies": {
         "@casl/ability": "^6.5.0",
         "@casl/vue": "^2.2.1",
-        "laravel-permission-to-vuejs": "^3.0.1"
+        "laravel-permission-to-vuejs": "^3.0.1",
+        "vue-sweetalert2": "^5.0.5"
     }
 }
